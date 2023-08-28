@@ -5,6 +5,7 @@
   <style>
     #game-container {
       font-family: "IBM Plex Sans", sans-serif;
+      border: 1px solid black; /* Add border to the game container */
     }
     .snake-segment {
       width: 16px;
@@ -150,6 +151,12 @@
       // Display game over message or perform other actions
     }
 
+    // Game Over
+    function gameOver() {
+      clearInterval(gameLoop);
+      // Display game over message or perform other actions
+    }
+
     // Handle Key Press Event
     function handleKeyPress(event) {
       switch (event.key) {
@@ -195,8 +202,8 @@
       gameContainer.innerHTML = "";
 
       // Render grid
-      gameContainer.style.width = `${gridSize.width}px`;
-      gameContainer.style.height = `${gridSize.height}px`;
+      gameContainer.style.width = `${gridSize.width-10}px`;
+      gameContainer.style.height = `${gridSize.height-10}px`;
 
       // Render snake
       snake.forEach(segment => {
